@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
+  const navigate = useNavigate();
   const [particles, setParticles] = useState<Array<{ id: number; left: number; delay: number }>>([]);
 
   useEffect(() => {
@@ -38,7 +40,11 @@ const Index = () => {
           <Button variant="ghost" className="text-foreground hover:text-primary transition-colors">
             Главная
           </Button>
-          <Button variant="ghost" className="text-foreground hover:text-primary transition-colors">
+          <Button 
+            variant="ghost" 
+            className="text-foreground hover:text-primary transition-colors"
+            onClick={() => navigate('/animation')}
+          >
             Анимация
           </Button>
         </div>
@@ -80,7 +86,12 @@ const Index = () => {
             Узнать больше
             <Icon name="Sparkles" size={20} className="ml-2" />
           </Button>
-          <Button size="lg" variant="outline" className="border-2 border-secondary text-secondary hover:bg-secondary/10 font-semibold px-8 shadow-lg">
+          <Button 
+            size="lg" 
+            variant="outline" 
+            className="border-2 border-secondary text-secondary hover:bg-secondary/10 font-semibold px-8 shadow-lg"
+            onClick={() => navigate('/animation')}
+          >
             Посмотреть анимацию
             <Icon name="Play" size={20} className="ml-2" />
           </Button>
